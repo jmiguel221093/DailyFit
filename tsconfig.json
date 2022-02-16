@@ -1,6 +1,27 @@
 {
-  "extends": "expo/tsconfig.base",
-  "compilerOptions": {
-    "strict": true
-  }
+    "extends": "expo/tsconfig.base",
+    "compilerOptions": {
+        "allowJs": true,
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "isolatedModules": true,
+        "jsx": "react-native",
+        "lib": ["ES2017", "DOM", "DOM.Iterable", "ESNext"],
+        "moduleResolution": "node",
+        "noEmit": true,
+        "strict": true,
+        "target": "ESNext",
+        "types": ["node"],
+        "skipLibCheck": true,
+        "strictNullChecks": true,
+        "strictFunctionTypes": true
+    },
+    "exclude": [
+        "node_modules",
+        "babel.config.js",
+        "metro.config.js",
+        "jest.config.js",
+        "__tests__/**/*-test.ts"
+    ]
 }
