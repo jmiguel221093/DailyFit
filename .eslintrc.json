@@ -9,7 +9,8 @@
         "airbnb-base",
         "prettier",
         "eslint:recommended",
-        "plugin:react/recommended"
+        "plugin:react/recommended",
+        "plugin:@typescript-eslint/recommended"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -19,17 +20,26 @@
         "ecmaVersion": 12,
         "sourceType": "module"
     },
-    "plugins": ["prettier", "react", "@typescript-eslint"],
+    "plugins": [
+        "prettier",
+        "react",
+        "@typescript-eslint",
+        "jsdoc",
+        "@typescript-eslint"
+    ],
     "settings": {
         "react": {
             "version": "detect"
+        },
+        "import/resolver": {
+            "node": {
+                "extensions": [".js", ".jsx", ".ts", ".tsx"]
+            }
         }
     },
     "rules": {
-        "no-unused-vars": [
-            "error",
-            { "args": "none", "varsIgnorePattern": "_" }
-        ],
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": ["error"],
         "no-empty": "error",
         "eqeqeq": "error",
         "curly": "error",
@@ -54,10 +64,42 @@
         "space-before-function-paren": "error",
         "space-in-parens": ["error", "never"],
         "linebreak-style": ["off"],
-        "indent": ["error", 4],
+        "indent": ["error", 4, { "SwitchCase": 1 }],
         "func-names": ["error", "as-needed"],
         "no-underscore-dangle": "off",
         "no-control-regex": "off",
-        "react/react-in-jsx-scope": "off"
+        "react/react-in-jsx-scope": "off",
+        "global-require": "off",
+        "import/extensions": "off",
+        "jsdoc/check-access": 1,
+        "jsdoc/check-alignment": 1,
+        "jsdoc/check-param-names": 1,
+        "jsdoc/check-property-names": 1,
+        "jsdoc/check-tag-names": 1,
+        "jsdoc/check-types": 1,
+        "jsdoc/check-values": 1,
+        "jsdoc/empty-tags": 1,
+        "jsdoc/implements-on-classes": 1,
+        "jsdoc/multiline-blocks": 1,
+        "jsdoc/newline-after-description": 1,
+        "jsdoc/no-multi-asterisks": 1,
+        "jsdoc/no-undefined-types": 1,
+        "jsdoc/require-jsdoc": 1,
+        "jsdoc/require-param": 1,
+        "jsdoc/require-param-description": 1,
+        "jsdoc/require-param-name": 1,
+        "jsdoc/require-param-type": 1,
+        "jsdoc/require-property": 1,
+        "jsdoc/require-property-description": 1,
+        "jsdoc/require-property-name": 1,
+        "jsdoc/require-property-type": 1,
+        "jsdoc/require-returns": 1,
+        "jsdoc/require-returns-check": 1,
+        "jsdoc/require-returns-description": 1,
+        "jsdoc/require-returns-type": 1,
+        "jsdoc/require-yields": 1,
+        "jsdoc/require-yields-check": 1,
+        "jsdoc/tag-lines": 1,
+        "jsdoc/valid-types": 1
     }
 }
