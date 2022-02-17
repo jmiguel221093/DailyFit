@@ -1,0 +1,10 @@
+{
+    "black": "#000000",
+    "white": "#ffffff",
+    "primary": "#9BF8F4",
+    "secondary": "#6F7BF7",
+    "success": "#68EDC6",
+    "danger": "#EA6472",
+    "highlight": "#90D7FF",
+    "warning": "#F7EB6F"
+}

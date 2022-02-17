@@ -9,7 +9,8 @@
         "airbnb-base",
         "prettier",
         "eslint:recommended",
-        "plugin:react/recommended"
+        "plugin:react/recommended",
+        "plugin:@typescript-eslint/recommended"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -19,7 +20,13 @@
         "ecmaVersion": 12,
         "sourceType": "module"
     },
-    "plugins": ["prettier", "react", "@typescript-eslint", "jsdoc"],
+    "plugins": [
+        "prettier",
+        "react",
+        "@typescript-eslint",
+        "jsdoc",
+        "@typescript-eslint"
+    ],
     "settings": {
         "react": {
             "version": "detect"
@@ -31,10 +38,8 @@
         }
     },
     "rules": {
-        "no-unused-vars": [
-            "error",
-            { "args": "none", "varsIgnorePattern": "_" }
-        ],
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": ["error"],
         "no-empty": "error",
         "eqeqeq": "error",
         "curly": "error",
@@ -59,7 +64,7 @@
         "space-before-function-paren": "error",
         "space-in-parens": ["error", "never"],
         "linebreak-style": ["off"],
-        "indent": ["error", 4],
+        "indent": ["error", 4, { "SwitchCase": 1 }],
         "func-names": ["error", "as-needed"],
         "no-underscore-dangle": "off",
         "no-control-regex": "off",
