@@ -1,6 +1,6 @@
 import { colors as Colors } from '../foundations';
-import {
-    colorPaletteGenerator,
+import { colorPaletteGenerator } from './colorPaletteGenerator';
+import type {
     ColorPalette,
     Color as ColorObject,
 } from './colorPaletteGenerator';

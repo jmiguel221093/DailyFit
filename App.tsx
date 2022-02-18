@@ -3,6 +3,9 @@ import AppLoading from 'expo-app-loading';
 import { SafeAreaView } from 'react-native';
 import { useFonts } from 'expo-font';
 
+import { Navigator } from './src/navigation';
+
+import { color } from './src/styles';
 import { fontsStack } from './src/utils';
 
 /**
@@ -14,8 +17,15 @@ export default function App() {
         return <AppLoading />;
     }
     return (
-        <SafeAreaView>
-            <StatusBar style="auto" />
-        </SafeAreaView>
+        <>
+            <SafeAreaView
+                style={{
+                    backgroundColor: color('black'),
+                }}
+            >
+                <StatusBar style="auto" />
+            </SafeAreaView>
+            <Navigator />
+        </>
     );
 }

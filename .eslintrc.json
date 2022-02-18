@@ -33,13 +33,20 @@
         },
         "import/resolver": {
             "node": {
-                "extensions": [".js", ".jsx", ".ts", ".tsx"]
+                "extensions": [".js", ".jsx", ".ts", ".d.ts", ".tsx"]
             }
         }
     },
     "rules": {
         "no-unused-vars": "off",
         "@typescript-eslint/no-unused-vars": ["error"],
+        "@typescript-eslint/consistent-type-imports": [
+            "error",
+            {
+                "prefer": "type-imports",
+                "disallowTypeAnnotations": false
+            }
+        ],
         "no-empty": "error",
         "eqeqeq": "error",
         "curly": "error",

@@ -1,5 +1,5 @@
 import chroma from 'chroma-js';
-import { colors as Colors } from '../foundations';
+import type { colors as Colors } from '../foundations';
 
 type Intensity =
     | 'default'
@@ -59,7 +59,7 @@ export function colorPaletteGenerator(colors: typeof Colors): ColorPalette {
                 palette = {
                     ...palette,
                     [color as keyof typeof Colors]: {
-                        '100': colors.white,
+                        default: colors.white,
                     },
                 };
                 break;
