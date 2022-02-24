@@ -67,7 +67,7 @@
         "no-multi-str": "error",
         "prefer-template": "error",
         "no-unused-expressions": "error",
-        "no-extra-parens": "error",
+        "no-extra-parens": ["error", "all", { "ignoreJSX": "all" }],
         "space-before-function-paren": "error",
         "space-in-parens": ["error", "never"],
         "linebreak-style": ["off"],

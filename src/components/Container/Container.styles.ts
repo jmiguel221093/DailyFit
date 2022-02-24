@@ -5,7 +5,7 @@ import { spacing } from '../../styles';
 export default StyleSheet.create({
     container: {
         flex: 1,
-        padding: spacing('loose'),
+        padding: spacing('extraLoose'),
     },
     scrollView: {},
 });

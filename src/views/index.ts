@@ -1,3 +1,4 @@
 import GetStarted from './GetStarted';
+import Registration from './Registration';
 
-export { GetStarted };
+export { GetStarted, Registration };

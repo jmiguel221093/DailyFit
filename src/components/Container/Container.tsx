@@ -8,15 +8,20 @@ const Container = ({
     style,
     scrollViewStyle,
     onScroll,
+    hasScroll,
 }: ContainerProps) => (
     <View style={[Styles.container, style]}>
-        <ScrollView
-            style={[Styles.scrollView, scrollViewStyle]}
-            showsVerticalScrollIndicator={false}
-            onScroll={onScroll}
-        >
-            {children}
-        </ScrollView>
+        {hasScroll ? (
+            <ScrollView
+                style={[Styles.scrollView, scrollViewStyle]}
+                showsVerticalScrollIndicator={false}
+                onScroll={onScroll}
+            >
+                {children}
+            </ScrollView>
+        ) : (
+            <>{children}</>
+        )}
     </View>
 );
 

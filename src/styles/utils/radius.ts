@@ -1,8 +1,9 @@
-import { radius } from '../foundations';
+import { radiusFoundations } from '../foundations';
 import { scaleSize } from './mixins';
 
-type RadiusSize = keyof typeof radius;
+type RadiusSize = keyof typeof radiusFoundations;
 
-const radiusSize = (size: RadiusSize = 'small') => scaleSize(radius[size]);
+const radiusSize = (size: RadiusSize = 'small') =>
+    scaleSize(radiusFoundations[size]);
 
 export default radiusSize;

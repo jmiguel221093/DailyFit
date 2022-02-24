@@ -1,4 +1,5 @@
 import fontsStack from './fonts-stack';
-import * as catalogs from './catalogs';
+import whatIsIt from './whatIsIt';
 
-export { fontsStack, catalogs };
+export * from './catalogs';
+export { fontsStack, whatIsIt };
