@@ -1,5 +1,5 @@
 import chroma from 'chroma-js';
-import type { colors as Colors } from '../foundations';
+import type { colorsFoundations as Colors } from '../foundations';
 
 type Intensity =
     | 'default'
@@ -69,10 +69,10 @@ export function colorPaletteGenerator(colors: typeof Colors): ColorPalette {
                     ...palette,
                     [color]: {
                         default: colors[color],
-                        '20': colorScaleLight(0.2).hex(),
-                        '40': colorScaleLight(0.4).hex(),
-                        '60': colorScaleLight(0.6).hex(),
-                        '80': colorScaleLight(0.8).hex(),
+                        '20': colorScaleLight(0.8).hex(),
+                        '40': colorScaleLight(0.6).hex(),
+                        '60': colorScaleLight(0.4).hex(),
+                        '80': colorScaleLight(0.2).hex(),
                     },
                 }; // Add the colors primary and secondary to the ColorPalette object
                 break;
@@ -81,15 +81,15 @@ export function colorPaletteGenerator(colors: typeof Colors): ColorPalette {
                     ...palette,
                     [color as keyof typeof Colors]: {
                         default: colors[color],
-                        '90': colorScaleLight(0.9).hex(),
-                        '80': colorScaleLight(0.8).hex(),
-                        '70': colorScaleLight(0.7).hex(),
-                        '60': colorScaleLight(0.6).hex(),
+                        '90': colorScaleLight(0.1).hex(),
+                        '80': colorScaleLight(0.2).hex(),
+                        '70': colorScaleLight(0.3).hex(),
+                        '60': colorScaleLight(0.4).hex(),
                         '50': colorScaleLight(0.5).hex(),
-                        '40': colorScaleLight(0.4).hex(),
-                        '30': colorScaleLight(0.3).hex(),
-                        '20': colorScaleLight(0.2).hex(),
-                        '10': colorScaleLight(0.1).hex(),
+                        '40': colorScaleLight(0.6).hex(),
+                        '30': colorScaleLight(0.7).hex(),
+                        '20': colorScaleLight(0.8).hex(),
+                        '10': colorScaleLight(0.9).hex(),
                     },
                 }; // Add the color black to the ColorPalette object
                 break;
@@ -98,14 +98,14 @@ export function colorPaletteGenerator(colors: typeof Colors): ColorPalette {
                     ...palette,
                     [color]: {
                         default: colors[color as keyof typeof Colors],
-                        '90': colorScaleDark(0.9).hex(),
-                        '80': colorScaleDark(0.8).hex(),
-                        '70': colorScaleDark(0.7).hex(),
-                        '60': colorScaleDark(0.6).hex(),
-                        '40': colorScaleLight(0.4).hex(),
-                        '30': colorScaleLight(0.3).hex(),
-                        '20': colorScaleLight(0.2).hex(),
-                        '10': colorScaleLight(0.1).hex(),
+                        '90': colorScaleDark(0.1).hex(),
+                        '80': colorScaleDark(0.2).hex(),
+                        '70': colorScaleDark(0.3).hex(),
+                        '60': colorScaleDark(0.4).hex(),
+                        '40': colorScaleLight(0.6).hex(),
+                        '30': colorScaleLight(0.7).hex(),
+                        '20': colorScaleLight(0.8).hex(),
+                        '10': colorScaleLight(0.9).hex(),
                     },
                 }; // Add the rest of feedback colors to the ColorPalette object
                 break;

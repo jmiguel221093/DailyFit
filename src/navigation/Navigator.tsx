@@ -1,12 +1,11 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import { GetStarted } from '../views';
+import { GetStarted, Registration } from '../views';
 import { color } from '../styles';
-import { catalogs } from '../utils';
+import { Screens } from '../utils';
 
 const Stack = createNativeStackNavigator();
-const { Screens } = catalogs;
 
 const Navigator = () => (
     <NavigationContainer>
@@ -20,6 +19,10 @@ const Navigator = () => (
             }}
         >
             <Stack.Screen name={Screens.getStarted} component={GetStarted} />
+            <Stack.Screen
+                name={Screens.registration}
+                component={Registration}
+            />
         </Stack.Navigator>
     </NavigationContainer>
 );

@@ -1,6 +1,6 @@
 const screens = {
-    walktrhough: 'Walkthrough',
     getStarted: 'GetStarted',
+    registration: 'Registration',
 };
 
 export default screens;
