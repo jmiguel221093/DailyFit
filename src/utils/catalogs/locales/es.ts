@@ -14,5 +14,37 @@ export default {
     },
     Registration: {
         title: 'Registro',
+        fields: {
+            continueButton: 'Continuar',
+            labels: {
+                fullName: 'Nombre completo',
+                birthdate: 'Fecha de nacimiento',
+                gender: 'Género',
+                username: 'Nombre de usuario',
+                email: 'Corre electrónico',
+                password: 'Contraseña',
+            },
+            placeholders: {
+                fullName: 'ej. Juan López',
+                birthdate: 'dd/mm/aaaa',
+                username: 'ej. juan.lopez',
+                email: 'ej. correo@mail.com',
+                password: 'Escribe tu contraseña',
+            },
+        },
+        dateField: {
+            selectDateButton: 'Seleccionar fecha',
+            cancelDateButton: 'Cancelar',
+        },
+        genderField: {
+            options: {
+                male: {
+                    label: 'Hombre',
+                },
+                female: {
+                    label: 'Mujer',
+                },
+            },
+        },
     },
 };
