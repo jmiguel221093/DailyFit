@@ -14,6 +14,7 @@ const Button = ({
     link,
     textStyle,
     onPress,
+    disabled,
 }: ButtonProps) => {
     if (!text) throw new Error('Button text is required');
 
@@ -27,6 +28,10 @@ const Button = ({
     if (link) {
         containerStyle.push(ContainerStyles.link);
         textStyles = { ...textStyles, ...TextStyles.link };
+    }
+    if (disabled) {
+        containerStyle.push(ContainerStyles.disabled);
+        textStyles = { ...textStyles, ...TextStyles.disabled };
     }
 
     const showOverlay = (value: number) => {
@@ -48,18 +53,20 @@ const Button = ({
         <TouchableWithoutFeedback
             onPressIn={handlePressIn}
             onPressOut={handlePressOut}
-            onPress={onPress}
+            onPress={() => !disabled && onPress && onPress()}
         >
             <View style={containerStyle}>
                 <Text style={textStyles}>{text}</Text>
-                <Animated.View
-                    style={[
-                        ContainerStyles.overlay,
-                        {
-                            opacity: transition,
-                        },
-                    ]}
-                />
+                {!disabled && (
+                    <Animated.View
+                        style={[
+                            ContainerStyles.overlay,
+                            {
+                                opacity: transition,
+                            },
+                        ]}
+                    />
+                )}
             </View>
         </TouchableWithoutFeedback>
     );

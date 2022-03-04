@@ -8,5 +8,6 @@ export default ({ direction, align, justify }: LayoutProps) =>
             flexDirection: direction,
             alignItems: align,
             justifyContent: justify,
+            flexWrap: 'wrap',
         },
     });

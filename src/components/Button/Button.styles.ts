@@ -27,6 +27,9 @@ export const ContainerStyles = StyleSheet.create({
         bottom: 0,
         backgroundColor: 'rgba(255,255,255,0.3)',
     },
+    disabled: {
+        backgroundColor: color('black', '60'),
+    },
 });
 
 export const TextStyles = StyleSheet.create({
@@ -38,5 +41,8 @@ export const TextStyles = StyleSheet.create({
         fontFamily: font('regular'),
         color: color('highlight'),
         textDecorationLine: 'underline',
+    },
+    disabled: {
+        color: color('black', '80'),
     },
 });
