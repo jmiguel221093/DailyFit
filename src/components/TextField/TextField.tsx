@@ -2,6 +2,7 @@ import { View, TextInput } from 'react-native';
 import type { StyleProp, ViewStyle } from 'react-native';
 
 import { Text } from '../Text';
+import { IconButton } from '../IconButton';
 import { color } from '../../styles';
 
 import Styles from './TextField.styles';
@@ -12,6 +13,7 @@ const TextField = ({
     label,
     style,
     size = 'medium',
+    action,
     ...rest
 }: TextFieldProps) => {
     const containerStyles = [Styles.container];
@@ -29,6 +31,13 @@ const TextField = ({
                     placeholder={rest.placeholder}
                     placeholderTextColor={color('black', '60')}
                 />
+                {action && (
+                    <IconButton
+                        icon={action.icon}
+                        onPress={action.onPress}
+                        style={Styles.textFieldAction}
+                    />
+                )}
             </View>
         </View>
     );

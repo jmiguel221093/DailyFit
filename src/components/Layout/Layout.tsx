@@ -3,6 +3,8 @@ import { View } from 'react-native';
 import Styles from './Layout.styles';
 import type { LayoutProps } from './Layout.props';
 
+import { Item } from './components';
+
 const Layout = ({
     children,
     direction = 'column',
@@ -23,5 +25,7 @@ const Layout = ({
         {children}
     </View>
 );
+
+Layout.Item = Item;
 
 export default Layout;

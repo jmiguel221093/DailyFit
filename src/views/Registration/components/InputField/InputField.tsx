@@ -103,7 +103,7 @@ const InputField = ({
                 text={Locales.StringsES.Registration.fields.continueButton}
                 primary
                 onPress={handleOnContinue}
-                disabled={error || type === 'date' ? !dateVal : !value}
+                disabled={error || (type === 'date' ? !dateVal : !value)}
             />
         </>
     );

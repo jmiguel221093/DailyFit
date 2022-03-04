@@ -10,6 +10,11 @@ const GetStarted = ({ navigation }: ViewProp) => {
     const handleCreateAccount = () => {
         navigation.navigate(Screens.registration);
     };
+
+    const handleLoginButtonPress = () => {
+        navigation.navigate(Screens.login);
+    };
+
     return (
         <>
             <GradientBackground />
@@ -52,6 +57,7 @@ const GetStarted = ({ navigation }: ViewProp) => {
                             text={Locales.StringsES.GetStarted.signIn}
                             link
                             textStyle={GetStartedStyles.signInLink}
+                            onPress={handleLoginButtonPress}
                         />
                     </Layout>
                 </Margin>

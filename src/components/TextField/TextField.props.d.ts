@@ -1,4 +1,5 @@
 import type { TextInputProps } from 'react-native';
+import type { IconActionProp } from '../../types';
 
 export interface TextFieldProps extends TextInputProps {
     label?: string;
@@ -9,4 +10,5 @@ export interface TextFieldProps extends TextInputProps {
     helperText?: string;
     errorText?: string;
     size?: 'medium' | 'large';
+    action?: IconActionProp;
 }

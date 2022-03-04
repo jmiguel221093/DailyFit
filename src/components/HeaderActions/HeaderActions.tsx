@@ -13,7 +13,12 @@ const HeaderActions = ({
     let layoutStyles = { ...Styles.layout };
     if (fixed) layoutStyles = { ...layoutStyles, ...Styles.fixed };
     return (
-        <Layout direction="row" justify="space-between" style={layoutStyles}>
+        <Layout
+            direction="row"
+            align="center"
+            justify="space-between"
+            style={layoutStyles}
+        >
             {primaryAction && (
                 <IconButton
                     icon={primaryAction.icon}

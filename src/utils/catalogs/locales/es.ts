@@ -47,4 +47,22 @@ export default {
             },
         },
     },
+    Login: {
+        title: 'Iniciar sesión',
+        fields: {
+            email: 'ej. correo@mail.com',
+            password: 'Escribe aquí tu contraseña',
+        },
+        forgotPassword: {
+            caption: '¿Olvidé mi contraseña?',
+        },
+    },
+    Home: {
+        greetings: 'Hola,\n$.name 👋🏻',
+        sections: {
+            metricsSection: {
+                title: 'Medidas',
+            },
+        },
+    },
 };

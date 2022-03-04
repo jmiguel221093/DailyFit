@@ -2,10 +2,10 @@ import { useState, useRef, useEffect } from 'react';
 import { Platform, View } from 'react-native';
 import PagerView from 'react-native-pager-view';
 
-import { Screen, DateField } from '../../components';
+import { Screen, DateField, Pagination } from '../../components';
 import { Locales } from '../../utils';
 import { RegistrationStyles, spacing } from '../../styles';
-import type { ViewProp } from '../../types';
+import type { ViewProp, IconActionProp } from '../../types';
 import type { NewUserModel } from '../../api';
 
 import { InputField } from './components';
@@ -23,12 +23,24 @@ const Registration = ({ navigation }: ViewProp) => {
     });
     const [selectedDate, setSelectedDate] = useState<string>();
     const [datePickerIsOpen, setDatePickerIsOpen] = useState<boolean>(false);
+    const [showPassword, setShowPassword] = useState<boolean>(false);
 
     const pagerViewRef = useRef<PagerView>(null);
+
+    const hasPrevious = Boolean(page);
 
     useEffect(() => {
         pagerViewRef.current?.setPage(page);
     }, [page]);
+
+    useEffect(() => {
+        navigation.removeListener('beforeRemove');
+        navigation.addListener('beforeRemove', (e: Event) => {
+            if (!hasPrevious) return;
+            e.preventDefault();
+            setPage(page - 1);
+        });
+    }, [hasPrevious, page]);
 
     const handleOnFieldContinue = (value: string, key: string) => {
         setUser({
@@ -47,6 +59,15 @@ const Registration = ({ navigation }: ViewProp) => {
         toggleDatePicker();
     };
 
+    const paginationMarkup = (
+        <Pagination itemsLength={inputFields.length} currentItem={page} />
+    );
+
+    const passwordAction: IconActionProp = {
+        icon: !showPassword ? 'Eye' : 'EyeOff',
+        onPress: () => setShowPassword(!showPassword),
+    };
+
     const renderInputField = (inputField: InputFieldProps) => (
         <View key={inputField.id}>
             <InputField
@@ -55,6 +76,12 @@ const Registration = ({ navigation }: ViewProp) => {
                 onContinue={handleOnFieldContinue}
                 onOpenDatePicker={toggleDatePicker}
                 validation={inputField.validation}
+                secureTextEntry={
+                    inputField.id === 'password' ? !showPassword : undefined
+                }
+                action={
+                    inputField.id === 'password' ? passwordAction : undefined
+                }
             />
         </View>
     );
@@ -64,6 +91,7 @@ const Registration = ({ navigation }: ViewProp) => {
             <Screen
                 title={Locales.StringsES.Registration.title}
                 navigation={navigation}
+                headerExtraContent={paginationMarkup}
             >
                 <PagerView
                     ref={pagerViewRef}

@@ -1,4 +1,5 @@
 import type { TextFieldProps, Icons } from '../../../../components';
+import type { IconActionProp } from '../../../../types';
 
 interface InputFieldProps extends TextFieldProps {
     onContinue?: (value: string, id: string) => void;
@@ -12,4 +13,5 @@ interface InputFieldProps extends TextFieldProps {
         value: string;
         icon?: keyof typeof Icons;
     }[];
+    action?: IconActionProp;
 }
