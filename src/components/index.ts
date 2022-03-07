@@ -1,5 +1,7 @@
+export * from './BarChart';
 export * from './BottomActions';
 export * from './Button';
+export * from './Card';
 export * from './Container';
 export * from './DateField';
 export * from './HeaderActions';
@@ -7,6 +9,7 @@ export * from './Icon';
 export * from './IconButton';
 export * from './Layout';
 export * from './Margin';
+export * from './Padding';
 export * from './Pagination';
 export * from './Screen';
 export * from './ScreenOptionField';

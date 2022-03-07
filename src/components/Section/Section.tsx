@@ -1,4 +1,5 @@
 import { View } from 'react-native';
+import type { ViewStyle } from 'react-native';
 
 import { Text } from '../Text';
 import { IconButton } from '../IconButton';
@@ -6,10 +7,26 @@ import { IconButton } from '../IconButton';
 import Styles from './Section.styles';
 import type { SectionProps } from './Section.props';
 
-const Section = ({ style, title, actions }: SectionProps) => {
-    const handlePressMoreActions = () => {};
+const Section = ({
+    style,
+    title,
+    actions,
+    children,
+    contentContainerStyle,
+}: SectionProps) => {
+    const containerStyle: ViewStyle[] = [];
+    const contentStyle: ViewStyle[] = [];
+    if (style) containerStyle.push(style);
+    if (contentContainerStyle) contentStyle.push(contentContainerStyle);
+
+    const handlePressMoreActions = () => {
+        let i = 0;
+        i += 1;
+        return i;
+    };
+
     return (
-        <View style={style}>
+        <View style={containerStyle}>
             {(title || actions) && (
                 <View style={Styles.header}>
                     {title && (
@@ -25,6 +42,7 @@ const Section = ({ style, title, actions }: SectionProps) => {
                     )}
                 </View>
             )}
+            <View style={contentStyle}>{children}</View>
         </View>
     );
 };

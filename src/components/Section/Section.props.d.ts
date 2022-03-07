@@ -6,4 +6,5 @@ export interface SectionProps {
     children?: React.ReactNode;
     style?: ViewStyle;
     actions?: IconActionProp[];
+    contentContainerStyle?: ViewStyle;
 }
