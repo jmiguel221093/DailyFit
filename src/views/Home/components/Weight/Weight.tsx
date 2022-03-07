@@ -35,19 +35,23 @@ const Weight = ({ date, weight }: WeightProps) => {
                         <BarChart
                             data={[
                                 {
-                                    size: 10,
-                                    gradientColor: ['#68EDC6', '#B0F5F3'],
-                                },
-                                {
-                                    size: 20,
-                                    gradientColor: ['#68EDC6', '#B0F5F3'],
-                                },
-                                {
                                     size: 5,
                                     gradientColor: ['#68EDC6', '#B0F5F3'],
                                 },
                                 {
-                                    size: 15,
+                                    size: 2,
+                                    gradientColor: ['#68EDC6', '#B0F5F3'],
+                                },
+                                {
+                                    size: 4,
+                                    gradientColor: ['#68EDC6', '#B0F5F3'],
+                                },
+                                {
+                                    size: 3,
+                                    gradientColor: ['#68EDC6', '#B0F5F3'],
+                                },
+                                {
+                                    size: 1,
                                     gradientColor: ['#68EDC6', '#B0F5F3'],
                                 },
                             ]}
