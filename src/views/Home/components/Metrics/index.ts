@@ -1,4 +1,4 @@
 import Metrics from './Metrics';
 
-export type { MetricsProps } from './Metrics.props';
+export type { MetricsProps, MetricItemProps } from './Metrics.props';
 export { Metrics };

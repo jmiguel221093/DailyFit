@@ -1,4 +1,5 @@
 import { View } from 'react-native';
+import type { ViewStyle } from 'react-native';
 
 import type { IconActionProp } from '../../types';
 
@@ -17,9 +18,17 @@ const Screen = ({
     headerPrimaryAction,
     headerSecondaryAction,
     headerExtraContent,
+    containerStyle,
     ...rest
 }: ScreenProps) => {
     const canGoBack = navigation && navigation.canGoBack();
+    let containerStyles: ViewStyle = {};
+    if (canGoBack) {
+        containerStyles = { ...containerStyles, ...Styles.containerComponent };
+    }
+    if (containerStyle) {
+        containerStyles = { ...containerStyles, ...containerStyle };
+    }
 
     const primaryActionHeader: IconActionProp =
         headerPrimaryAction ||
@@ -33,10 +42,7 @@ const Screen = ({
 
     return (
         <View style={Styles.screenContainer}>
-            <Container
-                {...rest}
-                style={canGoBack ? Styles.containerComponent : undefined}
-            >
+            <Container {...rest} style={containerStyles}>
                 {title && (
                     <Margin marginBottom="extraLoose">
                         <Text type="displayLarge">{title}</Text>

@@ -63,6 +63,9 @@ export default {
             metricsSection: {
                 title: 'Medidas',
             },
+            weightSection: {
+                title: 'Peso',
+            },
         },
     },
 };
