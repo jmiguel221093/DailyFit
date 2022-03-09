@@ -9,7 +9,7 @@ import type { ViewProp, IconActionProp } from '../../types';
 import type { NewUserModel } from '../../api';
 
 import { InputField } from './components';
-import { inputFields } from './utils';
+import inputFields from './utils';
 import type { InputFieldProps } from './components';
 
 const Registration = ({ navigation }: ViewProp) => {

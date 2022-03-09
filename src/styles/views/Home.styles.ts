@@ -4,6 +4,8 @@ import { scaleSize, spacing, font, color, scaleFont } from '../utils';
 export default StyleSheet.create({
     containerStyles: {
         paddingHorizontal: 0,
+        backgroundColor: color('black'),
+        paddingBottom: 0,
     },
     metricsCards: {
         width: scaleSize(140),

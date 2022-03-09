@@ -15,9 +15,14 @@ const Weight = ({ date, weight }: WeightProps) => {
     nDate.locale('es-mx');
     const formattedDate: string = nDate.format('MMMM, DD');
     return (
-        <Margin marginTop="extraLoose" marginHorizontal="regular">
+        <Margin
+            marginTop="extraLoose"
+            marginBottom={104}
+            marginHorizontal="regular"
+        >
             <Section
                 title={Locales.StringsES.Home.sections.weightSection.title}
+                actions={[]}
             >
                 <Card>
                     {date && (
