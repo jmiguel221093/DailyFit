@@ -1,5 +1,6 @@
 export * from './BarChart';
 export * from './BottomActions';
+export * from './BottomNavigationBar';
 export * from './Button';
 export * from './Card';
 export * from './Container';

@@ -1,7 +1,7 @@
 import { Screen } from '../../components';
 import { HomeStyles } from '../../styles';
 
-import { Header, Metrics, Weight } from './components';
+import { Metrics, Weight } from './components';
 import type { MetricItemProps } from './components';
 
 const METRICS_DATA: MetricItemProps[] = [
@@ -63,10 +63,6 @@ const METRICS_DATA: MetricItemProps[] = [
 
 const Home = () => (
     <Screen hasScroll containerStyle={HomeStyles.containerStyles}>
-        <Header
-            userName="Miguel"
-            avatar="https://images.unsplash.com/photo-1628157588553-5eeea00af15c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80"
-        />
         <Metrics data={METRICS_DATA} />
         <Weight date={new Date()} weight={75.5} />
     </Screen>

@@ -67,7 +67,7 @@ const Metrics = ({ data }: MetricsProps) => {
     };
 
     return (
-        <Margin marginTop="extraLoose" marginHorizontal="regular">
+        <Margin marginHorizontal="regular">
             <Section
                 title={Locales.StringsES.Home.sections.metricsSection.title}
                 actions={[]}
