@@ -14,6 +14,16 @@ const getFontStyle = (
         opacity: 0.7,
         lineHeight: scaleFont(25),
     };
+    if (type === 'heading') {
+        style.opacity = 1;
+        style.fontFamily = font('semiBold');
+    }
+    if (type === 'displayMedium') {
+        style.fontFamily = font('medium');
+        style.opacity = 1;
+        style.letterSpacing = scaleSize(-2);
+        style.lineHeight = scaleFont(40);
+    }
     if (type === 'displayLarge') {
         style.fontFamily = font('medium');
         style.opacity = 1;

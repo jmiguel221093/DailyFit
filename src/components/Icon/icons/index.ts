@@ -6,6 +6,7 @@ import EyeOff from './EyeOff';
 import MoreVertical from './MoreVertical';
 import Home from './Home';
 import Barbell from './Barbell';
+import ChevronRight from './ChevronRight';
 
 export {
     ChevronLeft,
@@ -16,4 +17,5 @@ export {
     MoreVertical,
     Home,
     Barbell,
+    ChevronRight,
 };

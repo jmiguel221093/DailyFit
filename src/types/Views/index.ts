@@ -1,3 +1,4 @@
-import ViewProp from './View';
+import type ViewProp from './View';
 
-export { ViewProp };
+export * from './NutritionalPlan';
+export type { ViewProp };
