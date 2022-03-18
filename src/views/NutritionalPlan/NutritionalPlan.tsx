@@ -1,10 +1,11 @@
 import { useState } from 'react';
 
 import { TabsPage, Margin } from '../../components';
-import { Locales } from '../../utils';
+import { Locales, Screens } from '../../utils';
 import type {
     NutritionalPlanType,
     NutritionalRoutineTabType,
+    ViewProp,
 } from '../../types';
 import type { DietItemType } from '../../api';
 
@@ -133,12 +134,14 @@ const Tabs: NutritionalPlanType[] = [
     },
 ];
 
-const handlePressResourceItem = (id: string) => {
-    console.log('handlePressResourceItem', id);
-};
-
-const NutritionPlan = () => {
+const NutritionPlan = ({ navigation }: ViewProp) => {
     const [selectedTab, setSelectedTab] = useState(Tabs[0].id);
+
+    const handlePressResourceItem = (id: string) => {
+        navigation.navigate(Screens.menuForm, {
+            id,
+        });
+    };
 
     return (
         <>

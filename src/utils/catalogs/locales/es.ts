@@ -90,4 +90,24 @@ export default {
             },
         },
     },
+    MenuForm: {
+        title: {
+            new: 'Crear menú',
+            edit: 'Editar menú',
+        },
+        fields: {
+            time: {
+                label: 'Horario',
+                placeholder: 'ej. Desayuno',
+            },
+            content: {
+                label: 'Contenido del menú',
+                placeholder: 'ej. Una taza de café',
+            },
+        },
+        actions: {
+            save: 'Guardar menú',
+            cancel: 'Cancelar',
+        },
+    },
 };

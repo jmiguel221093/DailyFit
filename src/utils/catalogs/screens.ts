@@ -5,6 +5,7 @@ const screens = {
     master: 'Master',
     home: 'Home',
     nutritionalPlan: 'NutritionalPlan',
+    menuForm: 'MenuForm',
 };
 
 export default screens;

@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-import { spacing, radius, color, font } from '../../styles';
+import { spacing, radius, color, font, hexToRGBA } from '../../styles';
 
 export const ContainerStyles = StyleSheet.create({
     default: {
@@ -15,6 +15,12 @@ export const ContainerStyles = StyleSheet.create({
     primary: {
         backgroundColor: color('primary'),
     },
+    destructive: {
+        backgroundColor: color('danger'),
+    },
+    clean: {
+        backgroundColor: 'transparent',
+    },
     link: {
         backgroundColor: 'transparent',
         padding: 0,
@@ -27,6 +33,9 @@ export const ContainerStyles = StyleSheet.create({
         bottom: 0,
         backgroundColor: 'rgba(255,255,255,0.3)',
     },
+    overlayDestructive: {
+        backgroundColor: hexToRGBA(color('danger') as string, 0.3),
+    },
     disabled: {
         backgroundColor: color('black', '60'),
     },
@@ -36,6 +45,9 @@ export const TextStyles = StyleSheet.create({
     default: {
         fontFamily: font('semiBold'),
         opacity: 1,
+    },
+    destructive: {
+        color: color('danger'),
     },
     link: {
         fontFamily: font('regular'),
