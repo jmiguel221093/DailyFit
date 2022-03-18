@@ -11,6 +11,8 @@ const Button = ({
     text,
     style,
     primary,
+    destructive,
+    clean,
     link,
     textStyle,
     onPress,
@@ -21,8 +23,17 @@ const Button = ({
     const [transition] = useState(new Animated.Value(0));
 
     const containerStyle: ViewStyle[] = [ContainerStyles.default];
+    const overlayStyles: ViewStyle[] = [ContainerStyles.overlay];
     let textStyles: TextStyle = TextStyles.default;
     if (primary) containerStyle.push(ContainerStyles.primary);
+    if (destructive) containerStyle.push(ContainerStyles.destructive);
+    if (clean) {
+        containerStyle.push(ContainerStyles.clean);
+        if (destructive) {
+            textStyles = { ...textStyles, ...TextStyles.destructive };
+            overlayStyles.push(ContainerStyles.overlayDestructive);
+        }
+    }
     if (style) containerStyle.push(style);
     if (textStyle) textStyles = { ...textStyles, ...textStyle };
     if (link) {
@@ -60,7 +71,7 @@ const Button = ({
                 {!disabled && (
                     <Animated.View
                         style={[
-                            ContainerStyles.overlay,
+                            overlayStyles,
                             {
                                 opacity: transition,
                             },
