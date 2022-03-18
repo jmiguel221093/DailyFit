@@ -68,4 +68,26 @@ export default {
             },
         },
     },
+    NutritionalPlan: {
+        tabs: {
+            diet: {
+                title: 'Dieta',
+                key: 'diet',
+            },
+            routine: {
+                title: 'Rutina',
+                key: 'routine',
+                exercises: {
+                    sets: {
+                        singular: 'serie',
+                        plural: 'series',
+                    },
+                    reps: {
+                        singular: 'repetición',
+                        plural: 'repeticiones',
+                    },
+                },
+            },
+        },
+    },
 };
