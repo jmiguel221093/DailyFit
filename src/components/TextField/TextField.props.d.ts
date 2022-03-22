@@ -4,6 +4,7 @@ import type { IconActionProp } from '../../types';
 export interface TextFieldProps extends TextInputProps {
     label?: string;
     style?: ViewStyle;
+    inputContainerStyle?: ViewStyle;
     error?: string;
     disabled?: boolean;
     error?: string;

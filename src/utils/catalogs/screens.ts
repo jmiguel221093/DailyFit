@@ -6,6 +6,8 @@ const screens = {
     home: 'Home',
     nutritionalPlan: 'NutritionalPlan',
     menuForm: 'MenuForm',
+    routineForm: 'RoutineForm',
+    moreOptions: 'MoreOptions',
 };
 
 export default screens;

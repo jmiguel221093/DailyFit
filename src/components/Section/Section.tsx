@@ -10,34 +10,28 @@ import type { SectionProps } from './Section.props';
 const Section = ({
     style,
     title,
-    actions,
     children,
     contentContainerStyle,
+    onPressActions,
 }: SectionProps) => {
     const containerStyle: ViewStyle[] = [];
     const contentStyle: ViewStyle[] = [];
     if (style) containerStyle.push(style);
     if (contentContainerStyle) contentStyle.push(contentContainerStyle);
 
-    const handlePressMoreActions = () => {
-        let i = 0;
-        i += 1;
-        return i;
-    };
-
     return (
         <View style={containerStyle}>
-            {(title || actions) && (
+            {(title || onPressActions) && (
                 <View style={Styles.header}>
                     {title && (
                         <Text type="heading" style={Styles.headerTitle}>
                             {title}
                         </Text>
                     )}
-                    {actions && (
+                    {onPressActions && (
                         <IconButton
                             icon="MoreVertical"
-                            onPress={handlePressMoreActions}
+                            onPress={onPressActions}
                         />
                     )}
                 </View>

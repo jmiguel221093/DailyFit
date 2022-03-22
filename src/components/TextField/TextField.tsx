@@ -14,16 +14,19 @@ const TextField = ({
     style,
     size = 'medium',
     action,
+    inputContainerStyle,
     ...rest
 }: TextFieldProps) => {
     const containerStyles = [Styles.container];
+    const inputContainerStyles: ViewStyle[] = [Styles.inputContainer];
     const textFieldStyles: StyleProp<ViewStyle> = [Styles.textField];
     if (style) containerStyles.push(style);
+    if (inputContainerStyle) inputContainerStyles.push(inputContainerStyle);
     if (size === 'large') textFieldStyles.push(Styles.textFieldLarge);
     return (
         <View style={containerStyles}>
             {label && <Text style={Styles.label}>{label}</Text>}
-            <View style={Styles.inputContainer}>
+            <View style={inputContainerStyles}>
                 <TextInput
                     {...rest}
                     style={textFieldStyles}

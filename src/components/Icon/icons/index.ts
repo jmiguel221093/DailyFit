@@ -7,6 +7,10 @@ import MoreVertical from './MoreVertical';
 import Home from './Home';
 import Barbell from './Barbell';
 import ChevronRight from './ChevronRight';
+import Edit from './Edit';
+import Trash from './Trash';
+import Plus from './Plus';
+import Minus from './Minus';
 
 export {
     ChevronLeft,
@@ -18,4 +22,8 @@ export {
     Home,
     Barbell,
     ChevronRight,
+    Edit,
+    Trash,
+    Plus,
+    Minus,
 };

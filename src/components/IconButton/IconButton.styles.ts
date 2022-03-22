@@ -10,4 +10,7 @@ export default StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
+    destructive: {
+        backgroundColor: color('danger'),
+    },
 });

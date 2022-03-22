@@ -4,5 +4,16 @@ import Login from './Login';
 import Home from './Home';
 import NutritionPlan from './NutritionalPlan';
 import MenuForm from './MenuForm';
+import RoutineForm from './RoutineForm';
+import MoreOptions from './MoreOptions';
 
-export { GetStarted, Registration, Login, Home, NutritionPlan, MenuForm };
+export {
+    GetStarted,
+    Registration,
+    Login,
+    Home,
+    NutritionPlan,
+    MenuForm,
+    RoutineForm,
+    MoreOptions,
+};

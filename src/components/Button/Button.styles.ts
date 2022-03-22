@@ -58,3 +58,9 @@ export const TextStyles = StyleSheet.create({
         color: color('black', '80'),
     },
 });
+
+export const IconStyles = StyleSheet.create({
+    default: {
+        marginRight: spacing('regular'),
+    },
+});

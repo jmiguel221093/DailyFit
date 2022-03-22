@@ -110,4 +110,40 @@ export default {
             cancel: 'Cancelar',
         },
     },
+    RoutineForm: {
+        title: {
+            new: 'Crear entrenamiento',
+            edit: 'Editar entrenamiento',
+        },
+        fields: {
+            muscle: {
+                label: 'Músculo',
+                placeholder: 'ej. Espalda',
+            },
+            exercise: {
+                label: 'Ejercicio',
+                placeholder: 'ej. Peso muerto',
+            },
+            sets: {
+                label: 'Series',
+                placeholder: 'ej. 4',
+            },
+            reps: {
+                min: {
+                    label: 'Repetición mínima',
+                    placeholder: 'ej. 6',
+                },
+                max: {
+                    label: 'Repetición máxima',
+                    placeholder: 'ej. 8',
+                },
+            },
+        },
+        actions: {
+            addNewExercise: 'Añadir ejercicio',
+            save: 'Guardar entrenamiento',
+            delete: 'Eliminar entrenamiento',
+            cancel: 'Cancelar',
+        },
+    },
 };
