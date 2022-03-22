@@ -1,3 +1,4 @@
+import { Pressable } from 'react-native';
 import { Screen, Button, Margin } from '../../components';
 import type { ViewProp, ActionProp } from '../../types';
 
@@ -13,6 +14,9 @@ const MoreOptions = ({ route, navigation }: ViewProp) => {
             id: route?.params.id,
         });
     };
+    const handlePressDismiss = () => {
+        navigation.goBack();
+    };
 
     return (
         <Screen
@@ -20,6 +24,16 @@ const MoreOptions = ({ route, navigation }: ViewProp) => {
                 justifyContent: 'flex-end',
             }}
         >
+            <Pressable
+                style={{
+                    position: 'absolute',
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    top: 0,
+                }}
+                onPress={handlePressDismiss}
+            />
             {actions.map((action, i) => (
                 <Margin key={`more-actions-item-${i}`} marginTop="regular">
                     <Button
@@ -30,6 +44,9 @@ const MoreOptions = ({ route, navigation }: ViewProp) => {
                     />
                 </Margin>
             ))}
+            <Margin marginTop="regular">
+                <Button text="Cancelar" clean onPress={handlePressDismiss} />
+            </Margin>
         </Screen>
     );
 };
