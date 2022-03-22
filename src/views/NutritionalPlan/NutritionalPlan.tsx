@@ -163,6 +163,7 @@ const NutritionPlan = ({ navigation }: ViewProp) => {
                             />
                         ) : (
                             <GymRoutine
+                                navigation={navigation}
                                 key={tab.id}
                                 tabSource={tab.id}
                                 items={tab.items as NutritionalRoutineTabType[]}

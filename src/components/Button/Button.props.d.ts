@@ -1,5 +1,7 @@
 import type { ViewStyle, TextStyle } from 'react-native';
 
+import type * as Icons from '../Icon/icons';
+
 export interface ButtonProps {
     /**
      * Text to be displayed inside the button
@@ -41,4 +43,8 @@ export interface ButtonProps {
      * Styles object to be applied to the text of the button
      */
     textStyle?: TextStyle;
+    /**
+     * Icon name to be displayed inside the button
+     */
+    icon?: keyof typeof Icons;
 }

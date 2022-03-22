@@ -4,8 +4,9 @@ import { View, TouchableWithoutFeedback, Animated } from 'react-native';
 import type { ViewStyle, TextStyle } from 'react-native';
 
 import { Text } from '../Text';
+import { Icon } from '../Icon';
 import type { ButtonProps } from './Button.props';
-import { ContainerStyles, TextStyles } from './Button.styles';
+import { ContainerStyles, TextStyles, IconStyles } from './Button.styles';
 
 const Button = ({
     text,
@@ -17,6 +18,7 @@ const Button = ({
     textStyle,
     onPress,
     disabled,
+    icon,
 }: ButtonProps) => {
     if (!text) throw new Error('Button text is required');
 
@@ -67,6 +69,7 @@ const Button = ({
             onPress={() => !disabled && onPress && onPress()}
         >
             <View style={containerStyle}>
+                {icon && <Icon style={IconStyles.default} name={icon} />}
                 <Text style={textStyles}>{text}</Text>
                 {!disabled && (
                     <Animated.View

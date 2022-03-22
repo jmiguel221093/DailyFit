@@ -1,10 +1,19 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import { GetStarted, Registration, Login, MenuForm } from '../views';
+import {
+    GetStarted,
+    Registration,
+    Login,
+    MenuForm,
+    RoutineForm,
+    MoreOptions,
+} from '../views';
 import Master from '../views/Master';
 import { color } from '../styles';
 import { Screens } from '../utils';
+
+import { alertScreenOptions, modalScreenOptions } from './utils';
 
 const Stack = createNativeStackNavigator();
 
@@ -29,12 +38,17 @@ const Navigator = () => (
             <Stack.Screen
                 name={Screens.menuForm}
                 component={MenuForm}
-                options={{
-                    presentation: 'modal',
-                    contentStyle: {
-                        backgroundColor: color('black', '90'),
-                    },
-                }}
+                options={modalScreenOptions}
+            />
+            <Stack.Screen
+                name={Screens.routineForm}
+                component={RoutineForm}
+                options={modalScreenOptions}
+            />
+            <Stack.Screen
+                name={Screens.moreOptions}
+                component={MoreOptions}
+                options={alertScreenOptions}
             />
         </Stack.Navigator>
     </NavigationContainer>

@@ -18,6 +18,9 @@ const getFontStyle = (
         style.opacity = 1;
         style.fontFamily = font('semiBold');
     }
+    if (type === 'label') {
+        style.fontFamily = font('semiBold');
+    }
     if (type === 'displayMedium') {
         style.fontFamily = font('medium');
         style.opacity = 1;
