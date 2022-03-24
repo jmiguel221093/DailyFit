@@ -38,6 +38,7 @@ const GymRoutine = ({ tabSource, items, navigation }: GymRoutineProps) => {
             text: 'Eliminar entrenamiento',
             type: 'destructive',
             icon: 'Trash',
+            page: Screens.deleteAlert,
         },
     ];
 
