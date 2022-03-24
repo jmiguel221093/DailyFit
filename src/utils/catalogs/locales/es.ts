@@ -1,4 +1,7 @@
 export default {
+    generic: {
+        training: 'entrenamiento',
+    },
     GetStarted: {
         title: 'Bienvenido a DailyFit',
         description:
@@ -143,6 +146,14 @@ export default {
             addNewExercise: 'Añadir ejercicio',
             save: 'Guardar entrenamiento',
             delete: 'Eliminar entrenamiento',
+            cancel: 'Cancelar',
+        },
+    },
+    DeleteAlert: {
+        title: '¿Deseas eliminar este {item}?',
+        description: 'Esta acción no se puede deshacer.',
+        actions: {
+            confirm: 'Sí, eliminar',
             cancel: 'Cancelar',
         },
     },

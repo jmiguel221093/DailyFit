@@ -6,6 +6,7 @@ import NutritionPlan from './NutritionalPlan';
 import MenuForm from './MenuForm';
 import RoutineForm from './RoutineForm';
 import MoreOptions from './MoreOptions';
+import DeleteAlert from './DeleteAlert';
 
 export {
     GetStarted,
@@ -16,4 +17,5 @@ export {
     MenuForm,
     RoutineForm,
     MoreOptions,
+    DeleteAlert,
 };

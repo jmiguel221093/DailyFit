@@ -8,6 +8,7 @@ import {
     MenuForm,
     RoutineForm,
     MoreOptions,
+    DeleteAlert,
 } from '../views';
 import Master from '../views/Master';
 import { color } from '../styles';
@@ -48,6 +49,11 @@ const Navigator = () => (
             <Stack.Screen
                 name={Screens.moreOptions}
                 component={MoreOptions}
+                options={alertScreenOptions}
+            />
+            <Stack.Screen
+                name={Screens.deleteAlert}
+                component={DeleteAlert}
                 options={alertScreenOptions}
             />
         </Stack.Navigator>

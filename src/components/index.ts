@@ -1,3 +1,4 @@
+export * from './Banner';
 export * from './BarChart';
 export * from './BottomActions';
 export * from './BottomNavigationBar';

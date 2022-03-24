@@ -8,6 +8,7 @@ const screens = {
     menuForm: 'MenuForm',
     routineForm: 'RoutineForm',
     moreOptions: 'MoreOptions',
+    deleteAlert: 'DeleteAlert',
 };
 
 export default screens;
