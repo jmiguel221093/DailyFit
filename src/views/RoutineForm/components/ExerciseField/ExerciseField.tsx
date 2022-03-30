@@ -41,14 +41,16 @@ const ExerciseField = () => {
                 </Margin>
                 <Layout direction="row">
                     <Margin marginRight="regular">
-                        <Text>Series:</Text>
+                        <Text>
+                            {Locales.StringsES.RoutineForm.fields.sets.label}
+                        </Text>
                     </Margin>
                     <TextField
                         inputContainerStyle={{
                             borderBottomColor: 'transparent',
                         }}
                         placeholder={
-                            Locales.StringsES.RoutineForm.fields.exercise
+                            Locales.StringsES.RoutineForm.fields.sets
                                 .placeholder
                         }
                     />

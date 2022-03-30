@@ -1,13 +1,11 @@
 import { Children, Fragment, cloneElement } from 'react';
-import { View, Pressable } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import type { ViewStyle } from 'react-native';
-
-import { Text } from '../Text';
 
 import Styles from './Tabs.styles';
 import type { TabsProps } from './Tabs.props';
 
-import { Panel } from './components';
+import { Panel, Tab } from './components';
 
 const Tabs = ({
     tabs,
@@ -52,26 +50,30 @@ const Tabs = ({
     return (
         <View style={Styles.container}>
             {tabs && (
-                <View style={Styles.header}>
-                    {tabs.map((tab, i) => (
-                        <Pressable
-                            key={tab.id}
-                            style={{
-                                ...tabStyles,
-                                /* eslint-disable no-extra-parens */
-                                ...(i < tabs.length - 1
-                                    ? Styles.notLastTab
-                                    : {}),
-                                ...(tab.id === selectedTab
-                                    ? Styles.tabActive
-                                    : {}),
-                            }}
-                            onPress={() => handleTabChange(tab.id)}
-                        >
-                            <Text style={Styles.tabText}>{tab.title}</Text>
-                        </Pressable>
-                    ))}
-                </View>
+                <ScrollView
+                    horizontal
+                    style={Styles.header}
+                    showsHorizontalScrollIndicator={false}
+                >
+                    <View style={Styles.headerContainer}>
+                        {tabs.map((tab, i) => (
+                            <Tab
+                                key={tab.id}
+                                tabStyles={{
+                                    notLastTab: Styles.notLastTab,
+                                    tabActive: Styles.tabActive,
+                                    tabText: Styles.tabText,
+                                }}
+                                isSelected={tab.id === selectedTab}
+                                isLast={i === tabs.length - 1}
+                                id={tab.id}
+                                title={tab.title}
+                                onPress={handleTabChange}
+                                style={tabStyles}
+                            />
+                        ))}
+                    </View>
+                </ScrollView>
             )}
             {panelListMakup}
         </View>

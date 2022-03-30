@@ -130,6 +130,10 @@ const Tabs: NutritionalPlanType[] = [
                     },
                 ],
             },
+            {
+                id: '2',
+                routine: [],
+            },
         ],
     },
 ];
