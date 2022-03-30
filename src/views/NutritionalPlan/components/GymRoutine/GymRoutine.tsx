@@ -1,7 +1,14 @@
 import { Fragment, useState } from 'react';
 import { ScrollView, View } from 'react-native';
 
-import { TabsPage, Tabs, Section, Text, Margin } from '../../../../components';
+import {
+    TabsPage,
+    Tabs,
+    Section,
+    Text,
+    Margin,
+    Button,
+} from '../../../../components';
 import type { TabType } from '../../../../components';
 import { NutritionalPlanStyles } from '../../../../styles';
 
@@ -22,9 +29,22 @@ const TABS: TabType[] = [
         id: '3',
         title: 'Día 3',
     },
+    {
+        id: '4',
+        title: 'Día 4',
+    },
+    {
+        id: '5',
+        title: 'Día 5',
+    },
+    {
+        id: '6',
+        title: 'Día 6',
+    },
 ];
 
 const GymRoutine = ({ tabSource, items, navigation }: GymRoutineProps) => {
+    const [tabs] = useState(TABS);
     const [selectedTab, setSelectedTab] = useState(TABS[0].id);
 
     const routineOptions: (ActionProp & { page?: string })[] = [
@@ -60,48 +80,55 @@ const GymRoutine = ({ tabSource, items, navigation }: GymRoutineProps) => {
                     <View
                         style={NutritionalPlanStyles.scrollViewContentContainer}
                     >
-                        <Margin marginBottom="extraLoose">
-                            {tabContent.routine.map((r) => (
-                                <Section
-                                    key={r.id}
-                                    title={r.title}
-                                    onPressActions={handlePressActions}
-                                >
-                                    {r.exercises.map((e, i) => (
-                                        <Fragment
-                                            key={`routine-exercises-${i}`}
-                                        >
-                                            <Text
-                                                style={{
-                                                    ...NutritionalPlanStyles.gymExcerciseName,
-                                                    /* eslint-disable no-extra-parens */
-                                                    ...(i > 0
-                                                        ? NutritionalPlanStyles.gymExcerciseNameNotFirstChild
-                                                        : {}),
-                                                }}
+                        {tabContent.routine.length > 0 && (
+                            <Margin marginBottom="extraLoose">
+                                {tabContent.routine.map((r) => (
+                                    <Section
+                                        key={r.id}
+                                        title={r.title}
+                                        onPressActions={handlePressActions}
+                                    >
+                                        {r.exercises.map((e, i) => (
+                                            <Fragment
+                                                key={`routine-exercises-${i}`}
                                             >
-                                                {e.name}
-                                            </Text>
-                                            <Text>{`${e.sets} ${
-                                                Locales.StringsES
-                                                    .NutritionalPlan.tabs
-                                                    .routine.exercises.sets
-                                                    .plural
-                                            } | ${e.reps.min}${
-                                                e.reps.max
-                                                    ? ` - ${e.reps.max}`
-                                                    : ''
-                                            } ${
-                                                Locales.StringsES
-                                                    .NutritionalPlan.tabs
-                                                    .routine.exercises.reps
-                                                    .plural
-                                            }`}</Text>
-                                        </Fragment>
-                                    ))}
-                                </Section>
-                            ))}
-                        </Margin>
+                                                <Text
+                                                    style={{
+                                                        ...NutritionalPlanStyles.gymExcerciseName,
+                                                        /* eslint-disable no-extra-parens */
+                                                        ...(i > 0
+                                                            ? NutritionalPlanStyles.gymExcerciseNameNotFirstChild
+                                                            : {}),
+                                                    }}
+                                                >
+                                                    {e.name}
+                                                </Text>
+                                                <Text>{`${e.sets} ${
+                                                    Locales.StringsES
+                                                        .NutritionalPlan.tabs
+                                                        .routine.exercises.sets
+                                                        .plural
+                                                } | ${e.reps.min}${
+                                                    e.reps.max
+                                                        ? ` - ${e.reps.max}`
+                                                        : ''
+                                                } ${
+                                                    Locales.StringsES
+                                                        .NutritionalPlan.tabs
+                                                        .routine.exercises.reps
+                                                        .plural
+                                                }`}</Text>
+                                            </Fragment>
+                                        ))}
+                                    </Section>
+                                ))}
+                            </Margin>
+                        )}
+                        <Button
+                            text="Añadir entrenamiento"
+                            icon="Plus"
+                            style={NutritionalPlanStyles.newTrainButtton}
+                        />
                     </View>
                 </ScrollView>
             </Tabs.Panel>
@@ -111,7 +138,7 @@ const GymRoutine = ({ tabSource, items, navigation }: GymRoutineProps) => {
     return (
         <TabsPage.Section source={tabSource}>
             <Tabs
-                tabs={TABS}
+                tabs={tabs}
                 panelsContent={items}
                 renderPanel={renderPanel}
                 selectedTab={selectedTab}

@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { scaleSize, font, spacing } from '../utils';
+import { scaleSize, font, spacing, color } from '../utils';
 
 export default StyleSheet.create({
     resourceList: {
@@ -17,5 +17,11 @@ export default StyleSheet.create({
     },
     gymExcerciseNameNotFirstChild: {
         marginTop: spacing(),
+    },
+    newTrainButtton: {
+        backgroundColor: 'transparent',
+        borderWidth: 1,
+        borderColor: color('white'),
+        borderStyle: 'dashed',
     },
 });

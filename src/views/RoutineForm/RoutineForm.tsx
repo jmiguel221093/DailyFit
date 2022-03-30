@@ -5,7 +5,7 @@ import { ExerciseField } from './components';
 
 import type { ViewProp } from '../../types';
 
-const RoutineForm = ({ route, navigation }: ViewProp) => (
+const RoutineForm = ({ navigation }: ViewProp) => (
     <Screen
         title={Locales.StringsES.RoutineForm.title.edit}
         navigation={navigation}

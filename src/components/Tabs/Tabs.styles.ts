@@ -1,14 +1,18 @@
 import { StyleSheet } from 'react-native';
-import { radius, spacing, color, font } from '../../styles';
+import { radius, spacing, color, font, scaleSize } from '../../styles';
 
 export default StyleSheet.create({
     container: {
         flex: 1,
     },
     header: {
+        marginBottom: spacing('extraLoose'),
+        maxHeight: scaleSize(41),
+    },
+    headerContainer: {
         flexDirection: 'row',
         justifyContent: 'center',
-        marginBottom: spacing('extraLoose'),
+        alignItems: 'flex-start',
     },
     tab: {
         paddingHorizontal: spacing('loose'),
@@ -18,7 +22,7 @@ export default StyleSheet.create({
         opacity: 0.5,
     },
     notLastTab: {
-        marginRight: spacing(),
+        marginRight: spacing('baseTight'),
     },
     tabActive: {
         opacity: 1,

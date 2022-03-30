@@ -3,6 +3,7 @@ import RegistrationStyles from './Registration.styles';
 import LoginStyles from './Login.styles';
 import HomeStyles from './Home.styles';
 import NutritionalPlanStyles from './NutritionalPlan.styles';
+import DeleteAlertStyles from './DeleteAlert.styles';
 
 export {
     GetStartedStyles,
@@ -10,4 +11,5 @@ export {
     LoginStyles,
     HomeStyles,
     NutritionalPlanStyles,
+    DeleteAlertStyles,
 };

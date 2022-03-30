@@ -1,5 +1,7 @@
 import { Banner, Screen, Button, Margin } from '../../components';
 import { Locales } from '../../utils';
+import { DeleteAlertStyles } from '../../styles';
+
 import type { DeleteAlertProps } from '../../types';
 
 const DeleteAlert = ({ navigation }: DeleteAlertProps) => {
@@ -7,7 +9,7 @@ const DeleteAlert = ({ navigation }: DeleteAlertProps) => {
         if (navigation) navigation.goBack();
     };
     return (
-        <Screen>
+        <Screen containerStyle={DeleteAlertStyles.content}>
             <Banner
                 title={Locales.StringsES.DeleteAlert.title.replace(
                     '{item}',

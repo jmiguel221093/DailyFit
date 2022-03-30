@@ -1,4 +1,2 @@
-import Panel from './Panel';
-
-export type { PanelProps } from './Panel.props';
-export { Panel };
+export * from './Panel';
+export * from './Tab';
