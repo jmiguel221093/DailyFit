@@ -70,14 +70,14 @@ const Metrics = ({ data }: MetricsProps) => {
         <Margin marginHorizontal="regular">
             <Section
                 title={Locales.StringsES.Home.sections.metricsSection.title}
-                actions={[]}
+                onPressActions={() => console.log('TEST')}
             >
                 <Margin marginHorizontal={-16}>
                     <ScrollView
                         horizontal
                         pagingEnabled
                         decelerationRate={0}
-                        snapToInterval={scaleSize(164)}
+                        snapToInterval={scaleSize(140)}
                         showsHorizontalScrollIndicator={false}
                         snapToAlignment="start"
                     >

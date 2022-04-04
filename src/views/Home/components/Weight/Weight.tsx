@@ -22,7 +22,7 @@ const Weight = ({ date, weight }: WeightProps) => {
         >
             <Section
                 title={Locales.StringsES.Home.sections.weightSection.title}
-                actions={[]}
+                onPressActions={() => console.log('TEST')}
             >
                 <Card>
                     {date && (
