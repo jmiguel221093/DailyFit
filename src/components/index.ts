@@ -7,6 +7,7 @@ export * from './Card';
 export * from './Container';
 export * from './DateField';
 export * from './HeaderActions';
+export * from './HorizontalPicker';
 export * from './Icon';
 export * from './IconButton';
 export * from './Layout';

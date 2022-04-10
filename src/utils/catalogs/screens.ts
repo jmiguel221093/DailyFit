@@ -9,6 +9,7 @@ const screens = {
     routineForm: 'RoutineForm',
     moreOptions: 'MoreOptions',
     deleteAlert: 'DeleteAlert',
+    pickerPage: 'PickerPage',
 };
 
 export default screens;

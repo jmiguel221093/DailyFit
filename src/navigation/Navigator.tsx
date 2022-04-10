@@ -9,6 +9,7 @@ import {
     RoutineForm,
     MoreOptions,
     DeleteAlert,
+    PickerPage,
 } from '../views';
 import Master from '../views/Master';
 import { color } from '../styles';
@@ -21,7 +22,7 @@ const Stack = createNativeStackNavigator();
 const Navigator = () => (
     <NavigationContainer>
         <Stack.Navigator
-            initialRouteName={Screens.master}
+            initialRouteName={Screens.pickerPage}
             screenOptions={{
                 headerShown: false,
                 contentStyle: {
@@ -56,6 +57,7 @@ const Navigator = () => (
                 component={DeleteAlert}
                 options={alertScreenOptions}
             />
+            <Stack.Screen name={Screens.pickerPage} component={PickerPage} />
         </Stack.Navigator>
     </NavigationContainer>
 );
