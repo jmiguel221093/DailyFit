@@ -8,35 +8,20 @@ import type {
 
 import { Text } from '../Text';
 
-import validateProps from './utils';
 import Styles from './HorizontalPicker.styles';
 import type { HorizontalPickerProps } from './HorizontalPicker.props';
 
 const HorizontalPicker = ({
-    initialValue,
-    itemsSize,
-    itemWidth,
+    value = 0,
+    items,
+    itemsOnScreen = 5,
     onChange,
-    startsFrom = 0,
 }: HorizontalPickerProps) => {
-    validateProps({ itemsSize, itemWidth });
-    const [containerWidth, setContainerWidth] = useState<number>(0);
-    const [offset, setOffset] = useState<number>(0);
-    const [items, setItems] = useState<number[]>([]);
-    const [currentItem, setCurrentItem] = useState<number>(0);
+    const [currentItem, setCurrentItem] = useState<number>(value);
+    const [itemWidth, setItemWidth] = useState<number>(0);
     const scrollViewRef = useRef<ScrollView | null>(null);
 
-    useEffect(() => {
-        if (containerWidth > 0) {
-            const calculatedOffset = Math.floor(
-                Math.ceil(containerWidth / itemWidth) / 2
-            );
-            setOffset(calculatedOffset);
-            setItems(
-                Array.from(Array(itemsSize + calculatedOffset * 2).keys())
-            );
-        }
-    }, [containerWidth]);
+    const offset = Math.floor(itemsOnScreen / 2);
 
     const handleOnScroll = (e: NativeSyntheticEvent<NativeScrollEvent>) => {
         setCurrentItem(Math.ceil(e.nativeEvent.contentOffset.x / itemWidth));
@@ -44,35 +29,17 @@ const HorizontalPicker = ({
 
     const handleOnChange = (e: NativeSyntheticEvent<NativeScrollEvent>) => {
         if (onChange) {
-            onChange(
-                Math.ceil(e.nativeEvent.contentOffset.x / itemWidth) +
-                    startsFrom
-            );
+            onChange(Math.ceil(e.nativeEvent.contentOffset.x / itemWidth));
         }
     };
 
     useEffect(() => {
-        if (
-            scrollViewRef.current &&
-            initialValue &&
-            containerWidth &&
-            itemWidth &&
-            offset &&
-            items
-        ) {
-            console.log((initialValue - startsFrom) * itemWidth);
+        if (scrollViewRef.current && value) {
             scrollViewRef.current.scrollTo({
-                x: (initialValue - startsFrom) * itemWidth,
+                x: (currentItem - (offset - 2)) * itemWidth,
             });
         }
-    }, [
-        scrollViewRef.current,
-        initialValue,
-        containerWidth,
-        itemWidth,
-        offset,
-        items,
-    ]);
+    }, [itemWidth]);
 
     const renderItem = (item: number, index: number) => (
         <View
@@ -84,19 +51,38 @@ const HorizontalPicker = ({
                 Styles.itemContainer,
             ]}
         >
-            {index > offset - 1 && index < items.length - offset && (
+            {item && (
                 <>
-                    <Text
+                    <View
                         style={{
-                            ...Styles.itemText,
-                            /* eslint-disable no-extra-parens */
-                            ...(index - offset === currentItem
-                                ? Styles.selectedItemText
-                                : {}),
+                            alignItems: 'flex-start',
+                            flexDirection: 'row',
                         }}
                     >
-                        {item + startsFrom - offset}
-                    </Text>
+                        <Text
+                            style={{
+                                ...Styles.itemText,
+                                /* eslint-disable no-extra-parens */
+                                ...(index - offset === currentItem
+                                    ? Styles.selectedItemText
+                                    : {}),
+                            }}
+                        >
+                            {item}
+                        </Text>
+                        {/* {index - offset === currentItem && (
+                            <Text
+                                style={{
+                                    fontSize: 12,
+                                    opacity: 1,
+                                    marginTop: -10,
+                                    marginRight: -10,
+                                }}
+                            >
+                                cm
+                            </Text>
+                        )} */}
+                    </View>
                     <View style={Styles.indicatorContainer}>
                         <View
                             style={{
@@ -107,26 +93,20 @@ const HorizontalPicker = ({
                             }}
                         />
                     </View>
-                    {index - offset === currentItem && (
-                        <Text
-                            style={{
-                                position: 'absolute',
-                                top: -6,
-                                right: -15,
-                                fontSize: 12,
-                            }}
-                        >
-                            cm
-                        </Text>
-                    )}
                 </>
             )}
         </View>
     );
 
-    const handleLayout = (e: LayoutChangeEvent) => {
-        setContainerWidth(e.nativeEvent.layout.width);
+    const handleScrollViewLayout = (e: LayoutChangeEvent) => {
+        setItemWidth(Math.ceil(e.nativeEvent.layout.width / itemsOnScreen));
     };
+
+    const itemsToRender = [
+        ...Array.from({ length: offset }, () => null),
+        ...items,
+        ...Array.from({ length: offset }, () => null),
+    ];
 
     return (
         <ScrollView
@@ -139,9 +119,9 @@ const HorizontalPicker = ({
             onScroll={handleOnScroll}
             scrollEventThrottle={itemWidth || 0}
             onMomentumScrollEnd={handleOnChange}
-            onLayout={handleLayout}
+            onLayout={handleScrollViewLayout}
         >
-            {items.map(renderItem)}
+            {itemsToRender.map(renderItem)}
         </ScrollView>
     );
 };

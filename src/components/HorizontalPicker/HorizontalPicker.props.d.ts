@@ -1,7 +1,7 @@
 export interface HorizontalPickerProps {
-    itemsSize: number;
-    startsFrom?: number;
-    initialValue?: number;
+    /* eslint-disable @typescript-eslint/no-explicit-any */
+    items: any[];
+    value?: number;
     onChange?: (value: number) => void;
-    itemWidth: number;
+    itemsOnScreen?: number;
 }

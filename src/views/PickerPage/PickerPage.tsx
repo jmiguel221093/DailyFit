@@ -1,19 +1,15 @@
+import { useState } from 'react';
 import { View, Dimensions } from 'react-native';
 import { HorizontalPicker } from '../../components';
 
+const items = Array.from({ length: 300 }, (_, i) => i + 30);
+
 const PickerPage = () => {
-    const handlePickerChange = (value: number) => {
-        // console.log(value);
-    };
+    const [value, setValue] = useState<number>(20);
+
     return (
         <View>
-            <HorizontalPicker
-                itemsSize={300}
-                itemWidth={Math.ceil(Dimensions.get('window').width / 5)}
-                startsFrom={30}
-                initialValue={80}
-                onChange={handlePickerChange}
-            />
+            <HorizontalPicker value={value} onChange={setValue} items={items} />
         </View>
     );
 };

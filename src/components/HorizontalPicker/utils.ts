@@ -1,11 +1,11 @@
 import type { HorizontalPickerProps } from './HorizontalPicker.props';
 
 const validateProps = ({
-    itemsSize,
+    items,
     itemWidth,
 }: Partial<HorizontalPickerProps>) => {
-    if (!itemsSize || itemsSize < 1) {
-        throw new Error('itemsSize must be a positive number');
+    if (!items || items.length < 1) {
+        throw new Error('items must be a non empty array');
     }
     if (!itemWidth || itemWidth < 1) {
         throw new Error('itemWidth must be a positive number');
