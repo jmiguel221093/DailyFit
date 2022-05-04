@@ -4,4 +4,5 @@ export interface HorizontalPickerProps {
     value?: number;
     onChange?: (value: number) => void;
     itemsOnScreen?: number;
+    unit?: string;
 }

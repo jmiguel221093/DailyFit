@@ -7,7 +7,7 @@ import MenuForm from './MenuForm';
 import RoutineForm from './RoutineForm';
 import MoreOptions from './MoreOptions';
 import DeleteAlert from './DeleteAlert';
-import PickerPage from './PickerPage';
+import EditWeight from './EditWeight';
 
 export {
     GetStarted,
@@ -19,5 +19,5 @@ export {
     RoutineForm,
     MoreOptions,
     DeleteAlert,
-    PickerPage,
+    EditWeight,
 };

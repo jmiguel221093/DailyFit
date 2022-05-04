@@ -157,4 +157,12 @@ export default {
             cancel: 'Cancelar',
         },
     },
+    EditWeight: {
+        title: 'Editar Peso',
+        meta: 'Actual: {weight} kg',
+        actions: {
+            confirm: 'Confirmar',
+            cancel: 'Cancelar',
+        },
+    },
 };

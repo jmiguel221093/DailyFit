@@ -14,6 +14,7 @@ const Padding = ({
     paddingStart,
     paddingHorizontal,
     paddingVertical,
+    style,
 }: PaddingProps) => {
     if (!Children.count(children)) {
         throw new Error('Padding: children is required');
@@ -22,6 +23,7 @@ const Padding = ({
         if (isValidElement(child)) {
             return cloneElement(child, {
                 style: {
+                    ...style,
                     /* eslint-disable no-extra-parens */
                     ...(child.props.style || {}),
                     ...getPaddingStyles({

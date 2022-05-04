@@ -16,6 +16,7 @@ const HorizontalPicker = ({
     items,
     itemsOnScreen = 5,
     onChange,
+    unit,
 }: HorizontalPickerProps) => {
     const [currentItem, setCurrentItem] = useState<number>(value);
     const [itemWidth, setItemWidth] = useState<number>(0);
@@ -53,12 +54,7 @@ const HorizontalPicker = ({
         >
             {item && (
                 <>
-                    <View
-                        style={{
-                            alignItems: 'flex-start',
-                            flexDirection: 'row',
-                        }}
-                    >
+                    <View style={Styles.itemContentContainer}>
                         <Text
                             style={{
                                 ...Styles.itemText,
@@ -70,18 +66,9 @@ const HorizontalPicker = ({
                         >
                             {item}
                         </Text>
-                        {/* {index - offset === currentItem && (
-                            <Text
-                                style={{
-                                    fontSize: 12,
-                                    opacity: 1,
-                                    marginTop: -10,
-                                    marginRight: -10,
-                                }}
-                            >
-                                cm
-                            </Text>
-                        )} */}
+                        {unit && index - offset === currentItem && (
+                            <Text style={Styles.itemUnitMark}>{unit}</Text>
+                        )}
                     </View>
                     <View style={Styles.indicatorContainer}>
                         <View
@@ -109,20 +96,22 @@ const HorizontalPicker = ({
     ];
 
     return (
-        <ScrollView
-            ref={scrollViewRef}
-            pagingEnabled
-            horizontal
-            decelerationRate={itemWidth}
-            snapToInterval={itemWidth || 0}
-            snapToOffsets={items.map((item) => item * itemWidth)}
-            onScroll={handleOnScroll}
-            scrollEventThrottle={itemWidth || 0}
-            onMomentumScrollEnd={handleOnChange}
-            onLayout={handleScrollViewLayout}
-        >
-            {itemsToRender.map(renderItem)}
-        </ScrollView>
+        <View>
+            <ScrollView
+                ref={scrollViewRef}
+                pagingEnabled
+                horizontal
+                decelerationRate={itemWidth}
+                snapToInterval={itemWidth || 0}
+                snapToOffsets={items.map((item) => item * itemWidth)}
+                onScroll={handleOnScroll}
+                scrollEventThrottle={itemWidth || 0}
+                onMomentumScrollEnd={handleOnChange}
+                onLayout={handleScrollViewLayout}
+            >
+                {itemsToRender.map(renderItem)}
+            </ScrollView>
+        </View>
     );
 };
 

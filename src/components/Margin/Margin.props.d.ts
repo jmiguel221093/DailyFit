@@ -10,6 +10,7 @@ export interface MarginStyleProps {
     marginVertical?: keyof typeof spacingFoundations | number;
     marginStart?: keyof typeof spacingFoundations | number;
     marginEnd?: keyof typeof spacingFoundations | number;
+    style?: ViewStyle;
 }
 
 export interface MarginProps extends MarginStyleProps {

@@ -1,3 +1,4 @@
+import type { ViewStyle } from 'react-native';
 import { Layout } from '../Layout';
 import { IconButton } from '../IconButton';
 
@@ -9,9 +10,11 @@ const HeaderActions = ({
     secondaryAction,
     extraContent,
     fixed,
+    style,
 }: HeaderActionsProps) => {
-    let layoutStyles = { ...Styles.layout };
+    let layoutStyles: ViewStyle = { ...Styles.layout };
     if (fixed) layoutStyles = { ...layoutStyles, ...Styles.fixed };
+    if (style) layoutStyles = { ...layoutStyles, ...style };
     return (
         <Layout
             direction="row"

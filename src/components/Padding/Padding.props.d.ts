@@ -10,6 +10,7 @@ export interface PaddingStyleProps {
     paddingVertical?: keyof typeof spacingFoundations | number;
     paddingStart?: keyof typeof spacingFoundations | number;
     paddingEnd?: keyof typeof spacingFoundations | number;
+    style?: ViewStyle;
 }
 
 export interface PaddingProps extends PaddingStyleProps {

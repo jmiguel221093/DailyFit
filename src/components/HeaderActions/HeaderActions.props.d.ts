@@ -1,3 +1,4 @@
+import type { ViewStyle } from 'react-native';
 import type { IconActionProp } from '../../types';
 
 export interface HeaderActionsProps {
@@ -5,4 +6,5 @@ export interface HeaderActionsProps {
     secondaryAction?: IconActionProp;
     extraContent?: JSX.Element;
     fixed?: boolean;
+    style?: ViewStyle;
 }

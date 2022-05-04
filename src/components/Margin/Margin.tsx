@@ -14,6 +14,7 @@ const Margin = ({
     marginStart,
     marginHorizontal,
     marginVertical,
+    style,
 }: MarginProps) => {
     if (!Children.count(children)) {
         throw new Error('Margin: children is required');
@@ -22,6 +23,7 @@ const Margin = ({
         if (isValidElement(child)) {
             return cloneElement(child, {
                 style: {
+                    ...style,
                     /* eslint-disable no-extra-parens */
                     ...(child.props.style || {}),
                     ...getMarginStyles({

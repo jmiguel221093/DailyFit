@@ -7,11 +7,21 @@ export default StyleSheet.create({
         justifyContent: 'flex-end',
         alignItems: 'center',
     },
+    itemContentContainer: {
+        alignItems: 'flex-start',
+        flexDirection: 'row',
+    },
     itemText: {
         fontFamily: font('medium'),
         fontSize: fontSize('title'),
         textAlign: 'center',
         opacity: 0.5,
+    },
+    itemUnitMark: {
+        fontSize: 12,
+        opacity: 1,
+        marginTop: -10,
+        marginRight: -10,
     },
     selectedItemText: {
         fontSize: fontSize('displayLarge'),
