@@ -8,6 +8,7 @@ import RoutineForm from './RoutineForm';
 import MoreOptions from './MoreOptions';
 import DeleteAlert from './DeleteAlert';
 import EditWeight from './EditWeight';
+import Onboarding from './Onboarding';
 
 export {
     GetStarted,
@@ -20,4 +21,5 @@ export {
     MoreOptions,
     DeleteAlert,
     EditWeight,
+    Onboarding,
 };
