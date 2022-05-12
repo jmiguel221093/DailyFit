@@ -165,4 +165,13 @@ export default {
             cancel: 'Cancelar',
         },
     },
+    Onboarding: {
+        screenTitle: 'Onboarding',
+        fields: {
+            image: {
+                label: 'Agregar imagen',
+            },
+            submitButton: 'Continuar',
+        },
+    },
 };

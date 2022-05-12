@@ -4,6 +4,7 @@ import LoginStyles from './Login.styles';
 import HomeStyles from './Home.styles';
 import NutritionalPlanStyles from './NutritionalPlan.styles';
 import DeleteAlertStyles from './DeleteAlert.styles';
+import OnboardingStyles from './Onboarding.styles';
 
 export {
     GetStartedStyles,
@@ -12,4 +13,5 @@ export {
     HomeStyles,
     NutritionalPlanStyles,
     DeleteAlertStyles,
+    OnboardingStyles,
 };

@@ -10,6 +10,7 @@ import {
     MoreOptions,
     DeleteAlert,
     EditWeight,
+    Onboarding,
 } from '../views';
 import Master from '../views/Master';
 import { color } from '../styles';
@@ -22,7 +23,7 @@ const Stack = createNativeStackNavigator();
 const Navigator = () => (
     <NavigationContainer>
         <Stack.Navigator
-            initialRouteName={Screens.editWeight}
+            initialRouteName={Screens.onboarding}
             screenOptions={{
                 headerShown: false,
                 contentStyle: {
@@ -58,6 +59,7 @@ const Navigator = () => (
                 options={alertScreenOptions}
             />
             <Stack.Screen name={Screens.editWeight} component={EditWeight} />
+            <Stack.Screen name={Screens.onboarding} component={Onboarding} />
         </Stack.Navigator>
     </NavigationContainer>
 );
