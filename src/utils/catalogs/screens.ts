@@ -10,6 +10,7 @@ const screens = {
     moreOptions: 'MoreOptions',
     deleteAlert: 'DeleteAlert',
     editWeight: 'EditWeight',
+    onboarding: 'Onboarding',
 };
 
 export default screens;

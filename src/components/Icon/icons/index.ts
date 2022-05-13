@@ -11,6 +11,8 @@ import Edit from './Edit';
 import Trash from './Trash';
 import Plus from './Plus';
 import Minus from './Minus';
+import Settings from './Settings';
+import Camera from './Camera';
 
 export {
     ChevronLeft,
@@ -26,4 +28,6 @@ export {
     Trash,
     Plus,
     Minus,
+    Settings,
+    Camera,
 };
