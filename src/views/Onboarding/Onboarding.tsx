@@ -2,16 +2,28 @@ import { useState, useRef, useEffect } from 'react';
 import { View } from 'react-native';
 import PagerView from 'react-native-pager-view';
 
-import { Screen } from '../../components';
-import { RegistrationStyles, spacing } from '../../styles';
-import type { ViewProp } from '../../types';
+import { IconButton, Margin, Screen, Text } from '../../components';
+import { RegistrationStyles, spacing, OnboardingStyles } from '../../styles';
+
+import { ImageField, Field } from './components';
+import inputFields from './utils';
+
 import type { OnboardingUserModel } from '../../api';
 
-import { ImageField } from './components';
-import inputFields from './utils';
-import type { InputFieldProps } from './types';
+import type { FieldProps } from './types';
+import { Locales } from '../../utils';
 
-const Registration = ({ navigation }: ViewProp) => {
+const weightItems = Array.from(Array(300).keys()).map((item) => item + 30);
+const sizeItems = Array.from(Array(300).keys()).map((item) => item + 10);
+const heightItems = Array.from(Array(200).keys()).map((item) => item + 100);
+
+const items = {
+    weight: weightItems,
+    size: sizeItems,
+    height: heightItems,
+};
+
+const Onboarding = () => {
     const [page, setPage] = useState(0);
     const [userData, setUserData] = useState<OnboardingUserModel>({
         profileImage: '',
@@ -34,14 +46,10 @@ const Registration = ({ navigation }: ViewProp) => {
         pagerViewRef.current?.setPage(page);
     }, [page]);
 
-    useEffect(() => {
-        navigation.removeListener('beforeRemove');
-        navigation.addListener('beforeRemove', (e: Event) => {
-            if (!hasPrevious) return;
-            e.preventDefault();
-            setPage(page - 1);
-        });
-    }, [hasPrevious, page]);
+    const goBack = () => {
+        if (!hasPrevious) return;
+        setPage(page - 1);
+    };
 
     const handleOnFieldContinue = (value: string | number, key: string) => {
         setUserData({
@@ -51,12 +59,22 @@ const Registration = ({ navigation }: ViewProp) => {
         setPage(page + 1);
     };
 
-    const renderInputField = (inputField: InputFieldProps) => (
+    const renderInputField = (inputField: FieldProps) => (
         <View key={inputField.fieldName}>
-            {inputField.fieldType === 'image' && (
+            {inputField.fieldType === 'image' ? (
                 <ImageField
                     title={inputField.title}
                     onContinue={handleOnFieldContinue}
+                />
+            ) : (
+                <Field
+                    title={inputField.title}
+                    onContinue={handleOnFieldContinue}
+                    name={inputField.fieldName}
+                    items={
+                        items[inputField.fieldName as keyof typeof items] ||
+                        items.size
+                    }
                 />
             )}
         </View>
@@ -65,6 +83,25 @@ const Registration = ({ navigation }: ViewProp) => {
     return (
         <>
             <Screen>
+                <Margin marginBottom="extraLoose">
+                    <View style={OnboardingStyles.header}>
+                        {page > 0 && (
+                            <IconButton
+                                icon="ChevronLeft"
+                                onPress={goBack}
+                                style={OnboardingStyles.headerBackButton}
+                            />
+                        )}
+                        <View style={OnboardingStyles.screenTitleContainer}>
+                            <Text
+                                type="title"
+                                style={OnboardingStyles.screenTitle}
+                            >
+                                {Locales.StringsES.Onboarding.screenTitle}
+                            </Text>
+                        </View>
+                    </View>
+                </Margin>
                 <PagerView
                     ref={pagerViewRef}
                     pageMargin={spacing()}
@@ -80,4 +117,4 @@ const Registration = ({ navigation }: ViewProp) => {
     );
 };
 
-export default Registration;
+export default Onboarding;

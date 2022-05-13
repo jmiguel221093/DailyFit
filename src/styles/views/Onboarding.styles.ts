@@ -8,8 +8,10 @@ export default StyleSheet.create({
     },
     header: {
         flexDirection: 'row',
-        justifyContent: 'space-between',
         alignItems: 'center',
+    },
+    headerBackButton: {
+        marginRight: spacing('regular'),
     },
     screenTitleContainer: {
         flexDirection: 'row',
@@ -18,7 +20,6 @@ export default StyleSheet.create({
     screenTitle: {
         fontFamily: font('semiBold'),
         opacity: 1,
-        marginLeft: spacing('tight'),
     },
     imageFieldCameraButton: {
         width: scaleSize(140),

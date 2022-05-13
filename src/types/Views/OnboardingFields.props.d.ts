@@ -12,4 +12,7 @@ export interface ImageFieldProps extends FieldProps {
 export interface SizePickerFieldProps extends FieldProps {
     onChange?: (value: number) => void;
     value?: number;
+    items?: number[];
+    name?: string;
+    pickerMark?: string;
 }
